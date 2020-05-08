@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity(), NYView {
     }
 
     private fun initRecyclerView() {
-        val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this) as RecyclerView.LayoutManager
+        val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
         rv_ny_news.layoutManager = layoutManager
         rv_ny_news.setHasFixedSize(true)
     }

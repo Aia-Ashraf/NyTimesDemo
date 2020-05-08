@@ -17,8 +17,10 @@ App structure:
  View 
  ViewModel
  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
- 
  Espresso Unit Testing:
  
- Includes 2 test cases 
+ Includes 3 test cases 
  Just Run Class
+ 
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+Added SonarScanner to show quality summary 

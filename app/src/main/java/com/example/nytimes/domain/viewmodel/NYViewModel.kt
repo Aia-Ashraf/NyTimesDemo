@@ -12,8 +12,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class NYViewModel() : ViewModel() {
-    private var nyAdapter: NyAdapter? = null
-    var nYResponse: Response? = null
     lateinit var newsList: MutableList<NewsList>
     var compositeDisposable: CompositeDisposable = CompositeDisposable()
     lateinit var nyView: NYView
@@ -34,13 +32,10 @@ class NYViewModel() : ViewModel() {
                 .subscribe({
                     if (it.status == "OK") {
                         newsList = it.results
-                        print(it.toString() + "+++++++++++++++++++++")
                         nyView.setData(it.results)
                     }
                 }, {
                     it.message
-                    print(it.message.toString() + "+++++++++++++++++++++")
-
                 })
         )
     }

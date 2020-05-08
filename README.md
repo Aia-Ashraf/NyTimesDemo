@@ -3,8 +3,8 @@
 
 Using NY Times API ,App includes two screens :
 
--Main Screen (Feach list of NY News display )
--Deatails Screen (Details of NY ) 
+-Main Screen (Feach list of NY news display)
+-Deatails Screen (Details of NY news) 
 
 App structure :-
 

@@ -17,16 +17,13 @@ class MainActivity : AppCompatActivity(), NYView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val viewModel = initViewModel()
+        val viewModel = ViewModelProvider(this).get(NYViewModel::class.java)
         viewModel.getNyNews()
         initRecyclerView()
         initAdapter(viewModel)
     }
 
-    private fun initViewModel(): NYViewModel {
-        val viewModel = ViewModelProvider(this).get(NYViewModel::class.java)
-        return viewModel
-    }
+
 
     private fun initAdapter(viewModel: NYViewModel) {
         nyAdapter = NyAdapter(this)

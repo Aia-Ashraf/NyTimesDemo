@@ -12,6 +12,7 @@ import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nytimes.NewsList
 import com.example.nytimes.R
+import java.util.concurrent.atomic.AtomicBoolean
 
 
 class NyAdapter constructor( val context: Context) :
@@ -29,7 +30,7 @@ class NyAdapter constructor( val context: Context) :
 
     override fun onBindViewHolder(nyViewHolder: NyViewHolder, position: Int) {
         val mPosition = newsList.get(position)
-        nyViewHolder.imgNyNews.setOnClickListener {
+        nyViewHolder.ibForward.setOnClickListener {
             val intent = Intent(context, DetailsActivity::class.java)
             intent.putExtra("title", mPosition.title)
             intent.putExtra("des", mPosition.abstract)
@@ -46,7 +47,7 @@ class NyAdapter constructor( val context: Context) :
     }
 
     inner class NyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val imgNyNews: ImageView = itemView.findViewById(R.id.iv_ny)
+        val ibForward: ImageView = itemView.findViewById(R.id.ib_forward_arrow)
         val txtNyNewsTitle: TextView = itemView.findViewById(R.id.tv_ny_title)
         val txtNyNewsAuther: TextView = itemView.findViewById(R.id.tv_ny_auther)
         val txtDate: TextView = itemView.findViewById(R.id.tv_date)
@@ -54,4 +55,5 @@ class NyAdapter constructor( val context: Context) :
 
     override fun getItemCount(): Int =
         newsList.size
+
 }

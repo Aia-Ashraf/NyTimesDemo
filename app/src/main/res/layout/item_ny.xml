@@ -34,6 +34,7 @@
     <ImageButton android:layout_width="wrap_content" android:layout_height="wrap_content"
                  android:background="@drawable/ic_arrow_forward_black_24dp"
                  app:layout_constraintEnd_toEndOf="parent"
+                 android:id="@+id/ib_forward_arrow"
                  app:layout_constraintTop_toTopOf="@id/iv_ny"
     app:layout_constraintBottom_toBottomOf="@id/iv_ny"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

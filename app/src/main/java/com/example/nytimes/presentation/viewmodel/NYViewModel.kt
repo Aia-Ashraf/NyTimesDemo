@@ -27,7 +27,7 @@ class NYViewModel() : ViewModel() {
 
         compositeDisposable?.add(
             requestInterface.getNyTimesData("wAYfy4WW0jXYtRMIhMFGVC3nzmrCkcDr")
-                .subscribeOn(Schedulers.io())
+                .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     if (it.status == "OK") {

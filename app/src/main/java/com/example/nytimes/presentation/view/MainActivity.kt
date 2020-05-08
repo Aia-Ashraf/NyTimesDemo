@@ -12,15 +12,23 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), NYView {
 
-     lateinit var nyAdapter: NyAdapter
+    lateinit var nyAdapter: NyAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        val viewModel = ViewModelProvider(this).get(NYViewModel::class.java)
+        val viewModel = initViewModel()
         viewModel.getNyNews()
         initRecyclerView()
+        initAdapter(viewModel)
+    }
+
+    private fun initViewModel(): NYViewModel {
+        val viewModel = ViewModelProvider(this).get(NYViewModel::class.java)
+        return viewModel
+    }
+
+    private fun initAdapter(viewModel: NYViewModel) {
         nyAdapter = NyAdapter(this)
         viewModel.nyView = this
         rv_ny_news.adapter = nyAdapter
@@ -31,6 +39,7 @@ class MainActivity : AppCompatActivity(), NYView {
         rv_ny_news.layoutManager = layoutManager
         rv_ny_news.setHasFixedSize(true)
     }
+
     override fun setData(list: MutableList<NewsList>) {
         nyAdapter?.setNewsList(list!!)
     }

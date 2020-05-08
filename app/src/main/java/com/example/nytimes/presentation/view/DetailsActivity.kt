@@ -17,7 +17,6 @@ class DetailsActivity : AppCompatActivity() {
         val intent = intent
         val title: String = intent.getStringExtra("title")
         val description: String = intent.getStringExtra("des")
-
         bindData(description, title)
     }
 

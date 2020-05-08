@@ -1,4 +1,4 @@
-package com.example.nytimes
+package com.example.nytimes.data.models
 
 
 
@@ -8,6 +8,5 @@ data class Media (
 	val subtype : String,
 	val caption : String,
 	val copyright : String,
-	val approved_for_syndication : Int,
 	val mediaMetaData : List<MediaMetaData>
 )

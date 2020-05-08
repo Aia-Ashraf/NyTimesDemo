@@ -1,10 +1,8 @@
 package com.example.nytimes.presentation.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.nytimes.R
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_details.*
-import android.app.PendingIntent.getActivity
 
 
 class DetailsActivity : AppCompatActivity() {
@@ -12,7 +10,7 @@ class DetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(com.example.nytimes.R.layout.activity_details)
-        this.getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
+        this.supportActionBar?.setDisplayHomeAsUpEnabled(true)
         getData()
     }
     override fun onSupportNavigateUp(): Boolean {

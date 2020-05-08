@@ -10,12 +10,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.example.nytimes.NewsList
 import com.example.nytimes.R
-import java.util.concurrent.atomic.AtomicBoolean
+import com.example.nytimes.data.models.NewsList
 
 
-class NyAdapter constructor( val context: Context) :
+class NyAdapter constructor(private val context: Context) :
     RecyclerView.Adapter<NyAdapter.NyViewHolder>() {
     private var newsList :MutableList<NewsList> = emptyArray<NewsList>().toMutableList()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NyViewHolder {
@@ -29,20 +28,20 @@ class NyAdapter constructor( val context: Context) :
     }
 
     override fun onBindViewHolder(nyViewHolder: NyViewHolder, position: Int) {
-        val mPosition = newsList.get(position)
+        val mPosition = newsList[position]
         nyViewHolder.ibForward.setOnClickListener {
             val intent = Intent(context, DetailsActivity::class.java)
             intent.putExtra("title", mPosition.title)
             intent.putExtra("des", mPosition.abstract)
             startActivity(context, intent, Bundle.EMPTY)
         }
-        nyViewHolder.txtNyNewsTitle.setText(mPosition.title)
-        nyViewHolder.txtNyNewsAuther.setText(mPosition.byline)
-        nyViewHolder.txtDate.setText(mPosition.published_date)
+        nyViewHolder.txtNyNewsTitle.text= mPosition.title
+        nyViewHolder.txtNyNewsAuther.text =mPosition.byline
+        nyViewHolder.txtDate.text = mPosition.publishedDate
     }
 
     fun setNewsList(list: MutableList<NewsList>) {
-        newsList = list!!
+        newsList = list
         this.notifyDataSetChanged()
     }
 

@@ -1,11 +1,11 @@
-package com.example.nytimes
+package com.example.nytimes.data.models
 
+import com.example.nytimes.data.models.NewsList
 
 
 data class Response (
 
     val status : String,
     val copyright : String,
-    val num_results : Int,
     var results : MutableList<NewsList>
 )

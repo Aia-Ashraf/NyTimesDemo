@@ -1,4 +1,4 @@
-package com.example.nytimes
+package com.example.nytimes.data.models
 
 
 

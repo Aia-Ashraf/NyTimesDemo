@@ -5,14 +5,15 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.nytimes.NYViewModel
-import com.example.nytimes.NewsList
+
 import com.example.nytimes.R
+import com.example.nytimes.data.models.NewsList
+import com.example.nytimes.presentation.viewmodel.NYViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), NYView {
 
-    lateinit var nyAdapter: NyAdapter
+    private lateinit var nyAdapter: NyAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +39,6 @@ class MainActivity : AppCompatActivity(), NYView {
     }
 
     override fun setData(list: MutableList<NewsList>) {
-        nyAdapter?.setNewsList(list!!)
+        nyAdapter.setNewsList(list)
     }
 }

@@ -22,12 +22,12 @@ class MainActivity : AppCompatActivity(), NYView {
         viewModel.nyView = this
         viewModel.getNyNews()
         initRecyclerView()
-        initAdapter(viewModel)
+        initAdapter()
     }
 
 
 
-    private fun initAdapter(viewModel: NYViewModel) {
+    private fun initAdapter() {
         nyAdapter = NyAdapter(this)
         rv_ny_news.adapter = nyAdapter
     }

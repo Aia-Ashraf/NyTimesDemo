@@ -1,6 +1,6 @@
 # NyTimesDemo
 
-Kotlin, Rx, Retrofit, MVVM, NY Times API 
+Kotlin, Rx, Retrofit, MVVM,AndroidX, NY Times API 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
 App includes two screens:

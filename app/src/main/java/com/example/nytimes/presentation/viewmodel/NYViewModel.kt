@@ -2,43 +2,18 @@ package com.example.nytimes.presentation.viewmodel
 
 
 import androidx.lifecycle.ViewModel
+import com.example.nytimes.domain.Repo
 import com.example.nytimes.data.models.NewsList
-import com.example.nytimes.data.remote.NYAPIService
 import com.example.nytimes.presentation.view.NYView
-import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class NYViewModel : ViewModel() {
     private lateinit var newsList: MutableList<NewsList>
-    private var compositeDisposable: CompositeDisposable = CompositeDisposable()
     lateinit var nyView: NYView
 
     fun getNyNews() {
-
-
-        val requestInterface = Retrofit.Builder()
-            .baseUrl("https://api.nytimes.com/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
-            .build().create(NYAPIService::class.java)
-
-        compositeDisposable.add(
-            requestInterface.getNyTimesData("wAYfy4WW0jXYtRMIhMFGVC3nzmrCkcDr")
-                .subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    if (it.status == "OK") {
-                        newsList = it.results
-                        nyView.setData(it.results)
-                    }
-                }, {
-                    it.message
-                })
-        )
+        newsList = emptyArray<NewsList>().toMutableList()
+        var repo = Repo(newsList, nyView)
+        repo.getData();
     }
 }
 

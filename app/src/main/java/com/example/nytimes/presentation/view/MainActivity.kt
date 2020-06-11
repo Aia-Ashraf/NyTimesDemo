@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity(), NYView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val viewModel = ViewModelProvider(this).get(NYViewModel::class.java)
+        viewModel.nyView = this
         viewModel.getNyNews()
         initRecyclerView()
         initAdapter(viewModel)
@@ -28,7 +29,6 @@ class MainActivity : AppCompatActivity(), NYView {
 
     private fun initAdapter(viewModel: NYViewModel) {
         nyAdapter = NyAdapter(this)
-        viewModel.nyView = this
         rv_ny_news.adapter = nyAdapter
     }
 

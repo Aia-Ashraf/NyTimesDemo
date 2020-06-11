@@ -18,6 +18,9 @@ App structure:
 2-presentation
  View 
  ViewModel
+ 
+ 3-domain
+ Repo
  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
  Espresso Unit Testing:
  
